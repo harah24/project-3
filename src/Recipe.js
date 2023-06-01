@@ -8,9 +8,12 @@ const Recipe = () => {
 
   const [recipes, setRecipes] = useState([]);
 
-  useEffect( () => {
+  const [cuisine, setCuisine ] = useState("");
 
-    // create recipe card - https://api.spoonacular.com/recipes/{id}/card
+  // state to track if the user clicked the button or not
+  const [submitted, setSubmitted] = useState(false);
+
+  useEffect( () => {
 
     const apiKey = `b495f0158e104ece9e50b6ec956a0921 `;
 
@@ -21,35 +24,48 @@ const Recipe = () => {
       params: {
         apiKey: "b495f0158e104ece9e50b6ec956a0921",
         format: "json",
-        cuisine: "asian",
+        cuisine, 
         instructionsRequired: true,
       },
     }).then((apiData) => {
-      // console.log(apiData.data.results);
+      console.log(apiData.data.results);
       setRecipes(apiData.data.results);
     });
-  }, []);
+     setSubmitted(false);
+  }, [submitted]);
+
+    // selectCusine function will track changes in user selection by passing it into the form as a prop
+    const selectCuisine = (paramTarget) =>{      
+     
+      //paramtarget = e.target.value 
+      setCuisine(paramTarget)
+    }
+
+    // function to handle submit 
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      setSubmitted(true);
+    }
 
   return (
     <section>
-      <Form/>
+      <Form 
+      selectCuisine={selectCuisine} 
+      handleSubmit={handleSubmit}
+      />
       <ul className="photos">
-
-        {
-
-          recipes.map( (recipeObject) => {
-            return <RecipeCard
+        {recipes.map((recipeObject) => {
+          return (
+            <RecipeCard
               key={recipeObject.id}
               img={recipeObject.image}
               alt={recipeObject.title}
             />
-          })
-
-        }
-
+          );
+        })}
       </ul>
     </section>
-  )
+  );
 
 }
 

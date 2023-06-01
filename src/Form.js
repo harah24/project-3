@@ -1,14 +1,21 @@
+import { useState } from "react";
 
 
-
-const Form =() => {
-
+const Form =({selectCuisine, handleSubmit}) => {
 
   return (
-    <form>
-      <label>Find recipe by cuisine:</label>
-      <select name="" id="">
-        <option value="" disabled>Select cuisine</option>
+    <form action="" onSubmit={ (event) => {handleSubmit(event)}} >
+
+      <label>Find recipe:</label>
+      <select 
+        name="" 
+        id="" 
+        onChange={(event) => {
+          selectCuisine(event.target.value)
+        }}      
+        >
+        <option value="placeholder" disabled>Select cuisine</option>
+        <option value="Caribbean">Caribbean</option>
         <option value="African">African</option>
         <option value="Asian">Asian</option>
         <option value="European">European</option>
@@ -23,8 +30,4 @@ const Form =() => {
 }
 
 export default Form
-
-
-
-
 

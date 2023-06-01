@@ -1,3 +1,4 @@
+// rendering info on page based on info passed to here from recipe ... info in here updates when there is change within Recipe comp 
 
 
 const RecipeCard = ({ title, img }) => {
