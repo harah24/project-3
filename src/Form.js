@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-const Form =({selectCuisine, handleSubmit}) => {
+const Form =({selectCuisine, handleSubmit, cuisine}) => {
 
   return (
     <form action="" onSubmit={ (event) => {handleSubmit(event)}} >
@@ -13,6 +13,7 @@ const Form =({selectCuisine, handleSubmit}) => {
         onChange={(event) => {
           selectCuisine(event.target.value)
         }}      
+        value={cuisine}
         >
         <option value="placeholder" disabled>Select cuisine</option>
         <option value="Caribbean">Caribbean</option>

@@ -15,20 +15,19 @@ const Recipe = () => {
 
   useEffect( () => {
 
-    const apiKey = `b495f0158e104ece9e50b6ec956a0921 `;
+    // const apiKey = `574bcbf6954c4c3789c2da6d9cd2f939`;
 
     axios({
-      url: `https://api.spoonacular.com/recipes/complexSearch?${apiKey}`,
+      url: `https://api.spoonacular.com/recipes/complexSearch`,
       method: "GET",
       dataResponse: "json",
       params: {
-        apiKey: "b495f0158e104ece9e50b6ec956a0921",
+        apiKey: "6a9eaeda2b754307a8d5eb95b29a998c",
         format: "json",
-        cuisine, 
-        instructionsRequired: true,
+        cuisine,
       },
     }).then((apiData) => {
-      console.log(apiData.data.results);
+      console.log(apiData.data);
       setRecipes(apiData.data.results);
     });
      setSubmitted(false);
@@ -52,14 +51,15 @@ const Recipe = () => {
       <Form 
       selectCuisine={selectCuisine} 
       handleSubmit={handleSubmit}
+      cuisine={cuisine}
       />
       <ul className="photos">
         {recipes.map((recipeObject) => {
           return (
             <RecipeCard
-              key={recipeObject.id}
+              id={recipeObject.id}
               img={recipeObject.image}
-              alt={recipeObject.title}
+              title={recipeObject.title}
             />
           );
         })}
