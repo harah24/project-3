@@ -3,7 +3,7 @@ const Header = () => {
 
   return (
     <header>
-      <h1>Let's Cook!</h1>
+      <h1> Dine in </h1>
     </header>
   );
   

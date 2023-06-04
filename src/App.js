@@ -9,9 +9,8 @@ function App() {
     <>
     <Header/>
     <Recipe/>
-
     </>
   );
-}
+} 
 
 export default App;

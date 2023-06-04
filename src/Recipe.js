@@ -15,8 +15,6 @@ const Recipe = () => {
 
   useEffect( () => {
 
-    // const apiKey = `574bcbf6954c4c3789c2da6d9cd2f939`;
-
     axios({
       url: `https://api.spoonacular.com/recipes/complexSearch`,
       method: "GET",
@@ -25,10 +23,10 @@ const Recipe = () => {
         apiKey: "6a9eaeda2b754307a8d5eb95b29a998c",
         format: "json",
         cuisine,
+        addRecipeInformation:true,
       },
     }).then((apiData) => {
-      console.log(apiData.data);
-      setRecipes(apiData.data.results);
+		  setRecipes(apiData.data.results);
     });
      setSubmitted(false);
   }, [submitted]);
@@ -57,9 +55,10 @@ const Recipe = () => {
         {recipes.map((recipeObject) => {
           return (
             <RecipeCard
-              id={recipeObject.id}
+              key={recipeObject.id}
               img={recipeObject.image}
               title={recipeObject.title}
+              link={recipeObject.sourceUrl}
             />
           );
         })}
