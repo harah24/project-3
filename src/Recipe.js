@@ -26,16 +26,14 @@ const Recipe = () => {
         addRecipeInformation:true,
       },
     }).then((apiData) => {
-		  setRecipes(apiData.data.results);
+		setRecipes(apiData.data.results);
     });
-     setSubmitted(false);
+	setSubmitted(false);
   }, [submitted]);
 
     // selectCusine function will track changes in user selection by passing it into the form as a prop
-    const selectCuisine = (paramTarget) =>{      
-     
-      //paramtarget = e.target.value 
-      setCuisine(paramTarget)
+    const selectCuisine = (paramTarget) => { 
+		setCuisine(paramTarget)
     }
 
     // function to handle submit 
@@ -49,9 +47,8 @@ const Recipe = () => {
       <Form 
       selectCuisine={selectCuisine} 
       handleSubmit={handleSubmit}
-      cuisine={cuisine}
       />
-      <ul className="photos">
+      <ul className="recipes">
         {recipes.map((recipeObject) => {
           return (
             <RecipeCard
@@ -65,8 +62,8 @@ const Recipe = () => {
       </ul>
     </section>
   );
-
 }
+
 
 export default Recipe;
 

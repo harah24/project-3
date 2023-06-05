@@ -3,7 +3,8 @@ const Header = () => {
 
   return (
     <header>
-      <h1> Dine in </h1>
+      <h1> dine-in </h1>
+      <p> Use drop-down menu below to find recipe inspirations from all over the world.</p>
     </header>
   );
   

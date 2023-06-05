@@ -3,10 +3,10 @@
 const RecipeCard = ({ title,img,link }) => {
 
   return (
-    <li className="photo-container">
+    <li className="recipe-card">
       {<img src={img} alt={`image of ${title}`}></img>}
       <p>{title}</p>
-      <a href={link} target="_blank">Recipe Link</a>
+      <a href={link} target="_blank">Find Recipe</a>
     </li>
   );
 };

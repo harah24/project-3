@@ -6,14 +6,13 @@ const Form =({selectCuisine, handleSubmit, cuisine}) => {
   return (
     <form action="" onSubmit={ (event) => {handleSubmit(event)}} >
 
-      <label>Find recipe:</label>
+      <label>Find a recipe:</label>
       <select 
         name="" 
         id="" 
         onChange={(event) => {
           selectCuisine(event.target.value)
         }}      
-        value={cuisine}
         >
         <option value="placeholder" disabled>Select cuisine</option>
         <option value="Caribbean">Caribbean</option>
