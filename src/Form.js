@@ -21,7 +21,7 @@ const Form =({selectCuisine, handleSubmit, cuisine}) => {
     <option value="Latin American">Latin American</option>
     <option value="American">American</option>
   </select>
-      <button>Search</button>
+  <button>Search</button>
  </form>
  );
   
