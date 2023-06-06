@@ -1,5 +1,5 @@
 
-const Form =({selectCuisine, handleSubmit, cuisine}) => {
+const Form =({selectCuisine, handleSubmit}) => {
 
   return (
   <form action="" onSubmit={ (event) => {handleSubmit(event)}}>
@@ -10,7 +10,6 @@ const Form =({selectCuisine, handleSubmit, cuisine}) => {
     onChange={(event) => {
 			selectCuisine(event.target.value)
 		}}
-		value={cuisine}
 		>
 		<option value="placeholder" disabled>Select cuisine</option>
     <option value="Caribbean">Caribbean</option>

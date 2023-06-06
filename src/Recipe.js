@@ -27,7 +27,7 @@ const Recipe = () => {
       setRecipes(apiData.data.results);
     });
 		setSubmitted(false);
-	}, [cuisine,submitted]);
+	}, [submitted]);
 	
 	const selectCuisine = (paramTarget) => { 
 		setCuisine(paramTarget)
