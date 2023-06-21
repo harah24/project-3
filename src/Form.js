@@ -10,8 +10,9 @@ const Form =({selectCuisine, handleSubmit}) => {
     onChange={(event) => {
 			selectCuisine(event.target.value)
 		}}
+    defaultValue =""
 		>
-		<option value="placeholder" disabled>Select cuisine</option>
+		<option value="" disabled>Select cuisine</option>
     <option value="Caribbean">Caribbean</option>
     <option value="African">African</option>
     <option value="Asian">Asian</option>

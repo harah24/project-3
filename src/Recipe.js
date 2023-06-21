@@ -13,21 +13,21 @@ const Recipe = () => {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect( () => {
-		axios({
-      url: `https://api.spoonacular.com/recipes/complexSearch`,
-      method: "GET",
-      dataResponse: "json",
-      params: {
-        apiKey: "b495f0158e104ece9e50b6ec956a0921",
-        format: "json",
-        cuisine,
-        addRecipeInformation: true,
-      },
-    }).then((apiData) => {
-      setRecipes(apiData.data.results);
-    });
-		setSubmitted(false);
-	}, [submitted]);
+    axios({
+        url: `https://api.spoonacular.com/recipes/complexSearch`,
+        method: "GET",
+        dataResponse: "json",
+        params: {
+          apiKey: "b495f0158e104ece9e50b6ec956a0921",
+          format: "json",
+          cuisine,
+          addRecipeInformation: true,
+        },
+      }).then((apiData) => {
+        setRecipes(apiData.data.results);
+      });
+      setSubmitted(false);
+  }, [submitted]);
 	
 	const selectCuisine = (paramTarget) => { 
 		setCuisine(paramTarget)
